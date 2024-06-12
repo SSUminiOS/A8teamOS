@@ -35,10 +35,14 @@ fault_test
 4. file system
 
 -file_test
+
 double indirect 구현 확인
 
 
 5. 스케줄러 선택 // 스케줄러 정책 설정 필요
+
 FCSF > make SCHED_POLICY = FCFS_SCHED  > make qemu > "fcfs_test" 실행
+
 ML > make SCHED_POLICY = ML_SCHED > make qemu > "ml_test" 실행
+
 MLFQ > make SCHED_POLICY = MLFQ_SCHED > make qemu > "mlfq_test" 실행
