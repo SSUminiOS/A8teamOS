@@ -30,54 +30,47 @@ int main(int argc, char **argv) {
   printf(1, "FCFS test start\n");
 
   // Test 1
-  printf(1, "\nWithout sleep & yield\n");
+  printf(1, "\n자식 프로세스를 5번 실행\n");
   
   p = create_child();
 
   for (int i = 0; i < NUM_LOOP; i++) {
     if (p == 0)
-      printf(1, "process %d\n", getpid());
+      printf(1, " process %d ", getpid());
   }
+  printf(1, "\n");
 
   exit_child(p);
 
   // Test 2
-  printf(1, "\nWith yield\n");
+  printf(1, "\n루프돌며 자신 PID 출력하고 CPU 양보\n");
 
   p = create_child();
 
   for (int i = 0; i < NUM_LOOP; i++) {
     if (p == 0) {
-      printf(1, "process %d\n", getpid());
+      printf(1, " process %d ", getpid());
       yield();
     }
   }
+   printf(1, "\n");
 
   exit_child(p);
 
   // Test 3
-  printf(1, "\nWith sleep\n");
+  printf(1, "\n자신 PID 출력하고 1초 대기\n");
 
   p = create_child();
 
   for (int i = 0; i < NUM_LOOP; i++) {
     if (p == 0) {
-      printf(1, "process %d\n", getpid());
+      printf(1, " process %d \n", getpid());
       sleep(1);
     }
   }
 
   exit_child(p);
 
-  // Test 4
-  printf(1, "\nInfinite loop\n");
 
-  p = create_child();
-
-  if (p == 0) while (1);
-
-  exit_child(p);
-  printf(1, "ok\n");
-
-  exit();
+   exit();
 }
