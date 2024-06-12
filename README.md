@@ -1,0 +1,32 @@
+실행 방법
+make qemu
+
+1. login 구현 확인
+//ID     password
+hyunjong 0909
+jaehak  0324
+minwoo 0522
+gwanghyun 1122
+// 4명의 ID, PW 선택
+
+2. systsem calls
+Shell 창에 "ps", "memsizetest" 입력
+- 현재 실행된 프로세스 상태, pid , priority 출력
+
+3. page fault
+fault_test2
+- 2페이지 크기(8KB)만큼의 메모리를 할당하고, 할당된 메모리 영역 밖의 주소(page_fault_addr)와 커널 영역의 주소를 설정하고 각 주소에 대한 테스트를 시행한다.
+ valid address가 들어올 경우 주소에 대한 유효성 여부를 출력하고 접근 어드레스에 대한 출력, 메모리 할당 여부를 반환한다. 
+할당된 메모리 영역 밖의 주소가 접근될 경우 page fault가 발생된 뒤 페이지 폴트 핸들러가 정상적으로 작동하면, 새로운 메모리 영역을 할당하여 유효성에 대한 반환값과 재할당 여부를 출력
+fault_test
+- stack 확장으로 페이지 폴트 유도//fault address에 맞춰 page allocate 여부 확인 가능
+
+4. file system
+-file_test
+double indirect 구현 확인
+
+
+5. 스케줄러 선택 // 스케줄러 정책 설정 필요
+FCSF > make SCHED_POLICY = FCFS_SCHED  > make qemu > "fcfs_test" 실행
+ML > make SCHED_POLICY = ML_SCHED > make qemu > "ml_test" 실행
+MLFQ > make SCHED_POLICY = MLFQ_SCHED > make qemu > "mlfq_test" 실행
